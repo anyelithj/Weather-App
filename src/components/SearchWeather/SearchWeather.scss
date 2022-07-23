@@ -1,0 +1,100 @@
+.search-bar {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	gap: 1rem;
+
+	&__input {
+		width: 20%;
+		height: 32px;
+		border-radius: var(--main-border-radius);
+		font-size: 1.2rem;
+		text-align: center;	
+		outline: none;
+	}
+
+	&__button {
+		border: none;
+		border-radius: var(--main-border-radius);
+		padding: 0.65rem;
+		background-image: var(--gradient);
+		color: var(--main-text-color);
+		font-weight: 700;
+		box-shadow: 0 0 30px -5px rgba(0, 0, 0, 0.25);
+		cursor: pointer;
+		line-height: initial;
+		width: 15%;
+		height: 35px;	
+		transition: all .3s ease;
+		&:active {
+			color: var(--main-text-color);
+			-webkit-transform: scale(0.95);
+			-ms-transform: scale(0.95);
+			transform: scale(0.95);
+			box-shadow: 1px 2px 3px #222;
+		}
+		
+		&:hover {
+			color: var(--main-text-color);
+			transform: scale(1.025);
+		}
+	}
+}
+
+.city {
+	color: var(--main-text-color);
+}
+
+@mixin Mobile(){
+	@media (max-width: 450px) {
+		@content;		
+	}
+}
+
+.search-results{
+	display: flex;
+	gap: 1rem;
+	width: 70%;
+	padding: 1rem;
+	margin: 0 auto;	
+	@include Mobile{
+		flex-direction: column;
+		width: 100%;
+	}
+	&__map{
+		background-color: orange;
+	}
+	&__info{
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+}
+
+.list-select{
+
+	& > div{
+		border-radius: 19px;
+		background-color: #222;
+		color: white;
+		border: none;
+		outline: none;
+		width: 31rem;
+	}
+	#react-select-3-listbox{
+		& > div{
+			& > div {
+				background-color: #0000 !important;
+				transition: all .4s ease;			
+				&:hover{
+					color: white;
+					font-weight: bold;
+					cursor: pointer;
+					transform: scale(1.1);
+				}
+			}
+		}
+	}
+}
